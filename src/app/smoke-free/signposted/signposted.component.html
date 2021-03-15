@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-accordion style="margin-top: 20px;">
+    <mat-expansion-panel hideToggle style=" margin: 20px 0px 20px; ">
+      <mat-expansion-panel-header style="background-color: #f2f4f6 ;">
+        <mat-panel-title>
+          <h5 style="margin: 0px 0px 0px 0px; color: #1b1e24;"><span style="font-weight: 600; ">
+              <strong>SignPosted/Onward Refferel </strong> </span>
+          </h5>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-form-field style="width:50vw" appearance="fill">
+        <mat-label>Signposted / Onward Referral To</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-select-trigger>
+            {{toppings.value ? toppings.value[0] : ''}}
+            <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+              (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

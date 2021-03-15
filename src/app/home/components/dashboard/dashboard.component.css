@@ -1,0 +1,67 @@
+
+.container {
+  margin-top: 20px;
+}
+.grid.simple.bluetheme .grid-title {
+  background: #0090d9;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px 5px 0 0;
+}
+.grid.simple .grid-title.no-border {
+  border: 0px;
+  border-bottom: 1px solid #dddddd;
+}
+.grid.simple .grid-title {
+  margin-bottom: 0px;
+  border: 0px solid #dddddd;
+  border-bottom: 0px;
+}
+.grid.simple .grid-title {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  min-height: 40px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+/* .grid-title {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+} */
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+#_maincontainer{
+  margin: 20px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+#cardbody{
+    padding-top: 1px !important;
+}
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+

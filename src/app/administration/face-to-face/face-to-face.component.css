@@ -1,0 +1,57 @@
+.main-body {
+  margin: 20px;
+}
+
+.tblb{
+  margin-left: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.example-small-box, .example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.example-small-box {
+  height: 100px;
+  width: 100px;
+}
+
+.example-large-box {
+  height: 300px;
+  width: 300px;
+}
+
+mat-tab-group{
+  margin-top: 20px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

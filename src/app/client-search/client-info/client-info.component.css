@@ -1,0 +1,159 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+
+
+
+
+
+
+.container {
+  margin-top: 20px;
+}
+.grid.simple.bluetheme .grid-title {
+  background: #0090d9;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px 5px 0 0;
+}
+.grid.simple .grid-title.no-border {
+  border: 0px;
+  border-bottom: 1px solid #dddddd;
+}
+.grid.simple .grid-title {
+  margin-bottom: 0px;
+  border: 0px solid #dddddd;
+  border-bottom: 0px;
+}
+.grid.simple .grid-title {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  min-height: 40px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+/* .grid-title {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+} */
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+#_maincontainer{
+  margin: 20px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+#cardbody{
+    padding-top: 1px !important;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+label, mat-radio-button{
+  color: black;
+}
+
+.example-tel-input-container {
+  display: flex;
+}
+
+.example-tel-input-element {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.example-tel-input-spacer {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+:host.example-floating .example-tel-input-spacer {
+  opacity: 1;
+}
+
+/* .example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+} */
+
+/* .mat-checkbox-inner-container{
+  height:45px !important;
+  width: 45px !important;
+} */
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+.mat-stepper-vertical {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}

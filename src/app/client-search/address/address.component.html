@@ -1,0 +1,68 @@
+<div class="" id="_maincontainer" style="margin-left: 0px;">
+  <div class="card mb-3" style="border:1px solid rgb(223, 218, 218)">
+    <div class="grid simple bluetheme">
+      <div class="grid-title no-border" style=" margin: 0px 0px 0px 0px; background-color: #f2f4f6;">
+        <h5 style="margin: 0px 0px 0px 0px; color: #1b1e24;"><span style="font-weight: 600; "> Address Informatiion
+          </span> </h5>
+        <div class="tools">
+          <a class="collapse" href="javascript:;"></a><a class="reload" href="javascript:;">
+          </a>
+        </div>
+      </div>
+      <div class="card-body text-info" id="cardbody">
+        <div class="grid-body no-border">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Address Line 1</ng-template>
+                    <mat-form-field>
+                      <mat-label>Address Line 1</mat-label>
+                      <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" label="Address Line 2">
+                  <form [formGroup]="secondFormGroup">
+                    <mat-form-field>
+                      <mat-label>Address</mat-label>
+                      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="ThirdFormGroup" label="Address Line 3">
+                  <form [formGroup]="ThirdFormGroup">
+                    <mat-form-field>
+                      <mat-label>Address</mat-label>
+                      <input matInput formControlName="ThirdCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  <p>You are now done.</p>
+                  <div>
+                    <!-- <button mat-button matStepperPrevious>Back</button> -->
+                    <button mat-button (click)="stepper.reset()">Save</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

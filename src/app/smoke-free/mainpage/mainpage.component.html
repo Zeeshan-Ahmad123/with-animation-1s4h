@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <mat-toolbar color="primary" style="margin-top: 10px;">
+    <span class="fill-remaining-space">SC RECORD OF ATTENDENCE</span>
+  </mat-toolbar>
+
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+
+      <app-consent></app-consent>
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Consent is Required</ng-template>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+
+      <app-smoking-status></app-smoking-status>
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Smoking Status </ng-template>
+
+        <div class="button" style="margin-left: 10px;">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+      <app-signposted></app-signposted>
+
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill Out SignPosted/Onward Refferel </ng-template>
+
+        <div class="button" style="margin-left: 10px;">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+      <app-audit-c></app-audit-c>
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill Out AUDIT C </ng-template>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill Out Genreal Informaion </ng-template>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+
+
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill Out Health Information </ng-template>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button>Save</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

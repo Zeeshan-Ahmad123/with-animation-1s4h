@@ -1,0 +1,119 @@
+  <!-- Record OF Contact -->
+
+  <main>
+    <div>
+
+      <div class="card mb-3" style="margin-top: 20px; border:1px solid rgb(223, 218, 218)">
+        <div class="grid simple bluetheme">
+          <div class="grid-title no-border" style=" margin: 0px 0px 0px 0px; background-color: #f2f4f6;">
+
+
+            <h5 style="margin: 0px 0px 0px 0px; color: #1b1e24;"><span style="font-weight: 300; "> RECORD OF CONTACT
+              </span>
+              <span style="font-weight: 500;"> (REFERRAL)</span> </h5>
+
+
+            <div class="tools">
+              <a class="collapse" href="javascript:;"></a><a class="reload" href="javascript:;">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body text-info" id="cardbody">
+          <div class="grid-body no-border">
+            <!-- <div id="divMessage">
+            </div> -->
+            <div class="row ">
+              <div class="col-md-12 ">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                      <!-- <label id="example-radio-group-label">Contact Type</label> -->
+                      <mat-form-field appearance="fill">
+                        <mat-label>Contact Type</mat-label>
+                        <mat-select [(value)]="selected">
+                          <mat-option value="Referral">Referral</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                      <mat-form-field color="accent" appearance="fill">
+                        <mat-label>Referral Date</mat-label>
+                        <input matInput [matDatepicker]="picker1">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Type Of Referral</mat-label>
+                        <mat-select>
+                          <mat-option>None</mat-option>
+                          <mat-option *ngFor="let typeofreferral of typeofreferral" [value]="typeofreferral">
+                            {{typeofreferral}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                      <mat-form-field appearance="fill">
+                        <mat-label>How Did You Hear About The Service</mat-label>
+                        <mat-select>
+                          <mat-option>None</mat-option>
+                          <mat-option *ngFor="let service of service" [value]="service">{{service}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                      <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Notes</mat-label>
+                          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                        </mat-form-field>
+                      </form>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Locality</mat-label>
+                        <mat-select [formControl]="LocalityControl" required>
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let Locality of Locality" [value]="Locality">
+                            {{Locality.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="LocalityControl.hasError('required')">You must choose a Locality</mat-error>
+                        <mat-hint>{{LocalityControl.value?.sound}}</mat-hint>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                      <mat-form-field appearance="fill">
+                        <mat-label>In Reference To</mat-label>
+                        <mat-select [formControl]="InRefControl" required>
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let InRef of InRef" [value]="InRef">
+                            {{InRef.name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="InRefControl.hasError('required')">In Reference To is Required</mat-error>
+                        <mat-hint>{{InRefControl.value?.sound}}</mat-hint>
+                      </mat-form-field>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

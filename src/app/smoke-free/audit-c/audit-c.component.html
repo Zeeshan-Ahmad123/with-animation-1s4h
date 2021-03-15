@@ -1,0 +1,355 @@
+<mat-accordion style="margin-top: 20px;">
+  <mat-expansion-panel hideToggle style=" margin: 20px 0px 20px; ">
+    <mat-expansion-panel-header style="background-color: #f2f4f6 ;">
+
+      <mat-panel-title>
+        <h5 style="margin: 0px 0px 0px 0px; color: #1b1e24;"><span style="font-weight: 600; "> <strong>AUDIT C </strong>
+          </span>
+        </h5>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="col-md-4 col-sm-12 col-xs-12">
+      <div class="form-group" style="margin-top: 20px; margin-left: 10px ">
+        <label class="form-label" id="lableAuditC_Or_AlcoholConsumption">
+          Audit C
+        </label>
+        <div class="controls">
+          <div class="input-append success ">
+            <input type="text" class="form-control" id="txt_AuditCScore" onkeydown="return false;"
+              onkeypress="return false;" readonly="readonly" style="background-color: #EFFBEF;">
+            <span class="add-on" onclick="link_AuditC();" style="pointer-events: painted;">
+              <span class="arrow"></span><i class="sprites cal-ico ">
+              </i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <cdk-virtual-scroll-viewport style="border: none;" itemSize="50" class="example-viewport">
+      <div class="container" style="padding: 30px;">
+        <div id="AUDITCFORWEB">
+
+
+          <div class="container">
+            <div class="row" id="tbl_AuditC">
+              <div id="tblAuditC_Score" class="hidden" style="margin-left: 20px; margin-top: 20px;">
+
+                <div class="questionlisting" id="AlcoholConsumptionAskClientOrNot">
+                  <ul class="list-unstyled">
+                    <li>
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <img src="../../../assets/assets/img/Alcohol.png" class="img-responsive" alt="">
+                        </div>
+                      </div>
+
+                      <div class="row " style="margin-top: 20px;">
+                        <div class="col-sm-12 col-md-12">
+                          <p style="color: green ;">
+                            0 – 7 Lower risk – Congratulate client on their safe alcohol use
+                          </p>
+                          <p style="color: fuchsia;">
+                            8 – 15 Increasing risk – Discuss the benefits/methods of cutting down and do a brief
+                            intervention
+                          </p>
+                          <p style="color: red;">
+                            15+ - Unhealthy levels of alcohol use - Discuss referral to Drugs and Alcohol Service
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Modal content-->
+                      <div class="col-xs-12 col-sm-6 col-md-12">
+                        <div class="modal-content">
+                          <h4 class="modal-title" style="text-align: center;"> How often do you have a drink containing
+                            alcohol?</h4>
+                          <div class="body1">
+
+                            <div class="container" id="card">
+                              <input type="radio" name="pricing" id="card1">
+                              <label for="card1">Never</label>
+                              <input type="radio" name="pricing" id="card2">
+                              <label for="card2">Monthly or Less</label>
+                              <input type="radio" name="pricing" id="card3">
+                              <label for="card3">2-4 Times Per MOnth</label>
+                              <input type="radio" name="pricing" id="card4">
+                              <label for="card4">2-3 Times per Week</label>
+                              <input type="radio" name="pricing" id="card5">
+                              <label for="card5">4+ times per Week</label>
+
+                            </div>
+
+                          </div>
+
+                          <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How many units of
+                          alcohol do you drink on a typical day when you are drinking?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div id="Kent_SecondAuditC">
+
+                            <div class="row"
+                              id="idHowManyUnitsOfAlcoholDoYouDrinkOnATypicalDayWhenYouAreDrinking_AuditC">
+                              <!-- <div class="col-sm-4 col-md-12">
+                                <div class="btn-group  btn-group-justified " data-toggle="buttons">
+
+                                    <label class="btn btn-toolbar btn-outline-none" id="Radio29" onclick="Value_AuditC(this);">
+                                        <input type="radio" name="HowOftenDoYouHaveaDrinkContainingAlcohol_AuditC" value="0">
+                                        Never
+                                    </label>
+                                    <label class="btn btn-outline-none" id="Radio30" onclick="Value_AuditC(this);">
+                                        <input type="radio" name="HowOftenDoYouHaveaDrinkContainingAlcohol_AuditC" value="1">
+                                        Monthly or less
+                                    </label>
+                                    <label class="btn btn-" id="Radio48" onclick="Value_AuditC(this);">
+                                        <input type="radio" name="HowOftenDoYouHaveaDrinkContainingAlcohol_AuditC" value="2">
+                                       <br> 2 - 4 times per
+                                        month
+                                    </label>
+                                    <label class="btn " id="Radio49" onclick="Value_AuditC(this);">
+                                        <input type="radio" name="HowOftenDoYouHaveaDrinkContainingAlcohol_AuditC" value="3">
+
+                                       <br> 2 - 3 times per
+                                        <br>
+                                        week
+                                    </label>
+                                    <label class="btn " id="Radio54" onclick="Value_AuditC(this);">
+                                        <input type="radio" name="HowOftenDoYouHaveaDrinkContainingAlcohol_AuditC" value="4">
+                                        4+ times per
+
+                                        week
+                                    </label>
+                                </div>
+                            </div> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often have you
+                          had 6 or more units if female, or 8 or more if male, on a single
+                          occasion in the last year?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div id="Kent_ThirdAuditC">
+                            <div class="row"
+                              id="idHowOftenHaveYouHad6OrMoreUnitsIfFemaleOr8OrMoreIfMaleOnASingleOccasionInTheLastYear_AuditC">
+                              <div class="col-sm-4 col-md-12">
+                                <mat-radio-group aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group">
+                                  <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                    class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                    {{third}}
+                                  </mat-radio-button>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+
+
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often during
+                          the
+                          last year have you found that you were not able to stop drinking
+                          once you had started?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div class="" id="dvAuditHiddenFields">
+                            <div class="row"
+                              id="idHowOftenDuringTheLastYearHaveYouFoundThatYouWereNotAbleToStopDrinkingOnceYouHadStarted_AuditC">
+                              <div class="col-sm-4 col-md-12">
+                                <mat-radio-group aria-labelledby="example-radio-group-label"
+                                  class="example-radio-group">
+                                  <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                    class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                    {{third}}
+                                  </mat-radio-button>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often during
+                          the
+                          last year have you failed to do what was normally expected
+                          from you because of your drinking?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div class="row"
+                            id="idHowOftenDuringTheLastYearHaveYouFailedToDoWhatWasNormallyExpectedFromYouBecauseOfYourDrinking_AuditC">
+                            <div class="col-sm-4 col-md-12">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                  {{third}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often during
+                          the
+                          last year have you needed an alcoholic drink in the morning
+                          to get yourself going after a heavy drinking session?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div class="row"
+                            id="idHowOftenDuringTheLastYearHaveYouNeededAnAlcoholicDrinkInTheMorningToGetYourSelfGoingAfterAHeavyDrinkingSession_AuditC">
+                            <div class="col-sm-4 col-md-12">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                  {{third}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often during
+                          the
+                          last year have you had a feeling of guilt or remorse after
+                          drinking?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div class="row"
+                            id="idHowOftenDuringTheLastYearHaveYouHadAFeelingOfGuiltOrRemorseAfterDrinking_AuditC">
+                            <div class="col-sm-4 col-md-12">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                  {{third}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> How often during
+                          the
+                          last year have you been unable to remember what happened the
+                          night before because you had been drinking?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+
+                          <div class="row"
+                            id="idHowOftenFuringTheLastYearHaveYouBeenUnableToRememberWhatHappenedTheNightBeforeBecauseYouHadBeenDrinking_AuditC">
+                            <div class="col-sm-4 col-md-6">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let third of thirds" [value]="third">
+                                  {{third}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+
+
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> Have you or
+                          somebody
+                          else been injured as a result of your drinking?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+                          <div class="row" id="idHaveYouOrSomebodyElseBeenInjuredAsAResultOfYourDrinking_AuditC">
+                            <div class="col-sm-4 col-md-6">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let forth of forths" [value]="forth">
+                                  {{forth}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+
+
+                      <div class="modal-content" style="margin-top: 20px;">
+                        <h4 class="modal-title" style="text-align: center; text-overflow:ellipsis;"> Has a relative or
+                          friend, doctor or other health worker been concerned about your
+                          drinking or suggested that you cut down?<span class="quest-ico"></span>
+                        </h4>
+                        <div class="modal-body">
+
+                          <div class="row"
+                            id="idHasARelativeOrFriendDoctorOrOtherHealthWorkerBeenConcernedAboutYourDrinkingOrSuggestedThatYouCutDown_AuditC">
+                            <div class="col-sm-4 col-md-6 ">
+                              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                <mat-radio-button style="border: 2px solid grey; padding: 5px ;"
+                                  class="example-radio-button" *ngFor="let forth of forths" [value]="forth">
+                                  {{forth}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: rgb(127, 214, 127);">
+                        </div>
+                      </div>
+
+
+                      <div class="row">
+                        <div class="col-sm-4 col-md-12">
+                          <label>
+                            Full Alcohol Audit Score : <span class="quest-ico" id="lblScore_AuditC">5</span>
+                          </label><label><span style="color:green; font-size:14px; font-weight:bold;"
+                              class="DefineRisk"><br>&nbsp; Lower Risk</span></label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4 col-md-12">
+                          <input type="button" class="btn btn-success btn-cons" value="Close"
+                            onclick="CloseQDialog_AuditC();">
+                        </div>
+                      </div>
+
+                    </li>
+
+                  </ul>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </mat-expansion-panel>
+
+
+</mat-accordion>

@@ -1,0 +1,211 @@
+<div class="card mb-3" style="margin-top: 20px; border:1px solid rgb(223, 218, 218)">
+  <div class="grid simple bluetheme">
+    <div class="grid-title no-border" style=" margin: 0px 0px 0px 0px; background-color: #f2f4f6;">
+      <h5 style="margin: 0px 0px 0px 0px; color: #1b1e24;"><span style="font-weight: 600; "> GENERAL INFORMATION </span>
+      </h5>
+      <div class="tools">
+        <a class="collapse" href="javascript:;"></a><a class="reload" href="javascript:;">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body text-info" id="cardbody">
+    <div class="grid-body no-border">
+      <!-- <div id="divMessage">
+            </div> -->
+      <div class="row">
+        <div class="col-md-12 ">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <section class="example-section">
+                  <label id="example-radio-group-label">No Contact Number :</label><br>
+                  <mat-checkbox class="example-margin"></mat-checkbox>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <mat-form-field appearance="fill">
+                  <mat-label>Ethnicity</mat-label>
+                  <mat-select [formControl]="ConTyp1Control">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let ConTyp1 of ConTyp1" [value]="ConTyp1">
+                      {{ConTyp1.name}}
+                    </mat-option>
+                  </mat-select>
+
+                  <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                </mat-form-field>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-6">
+                <form class="example-form">
+
+                  <mat-form-field hintLabel="" appearance="fill">
+                    <mat-label>Socio Economic Status</mat-label>
+                    <mat-select [formControl]="ConTyp2Control">
+                      <mat-option>--</mat-option>
+                      <mat-option *ngFor="let ConTyp2 of ConTyp2" [value]="ConTyp2">
+                        {{ConTyp2.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
+                <mat-form-field appearance="fill">
+                  <mat-label>ROC Contact Types</mat-label>
+                  <mat-select [formControl]="ConTyp2Control" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let ConTyp2 of ConTyp2" [value]="ConTyp2">
+                      {{ConTyp2.name}}
+                    </mat-option>
+                  </mat-select>
+                  <!-- <mat-hint>{{ConTyp2.values?.sound}}</mat-hint> -->
+                </mat-form-field>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-3">
+                <form class="example-form">
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Sexual Orientation</mat-label>
+                    <mat-select [formControl]="ConTyp3Control" required>
+                      <mat-option>--</mat-option>
+                      <mat-option *ngFor="let ConTyp3 of ConTyp3" [value]="ConTyp3">
+                        {{ConTyp3.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <mat-form-field appearance="fill"
+                  hintLabel="You Must Choose a Does Patient/Carer/parent Need Any Communication Support">
+                  <mat-label>Does The Patient/Carer/parent Need Any Communication Support?</mat-label>
+                  <mat-select [formControl]="ConTyp4Control">
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                      {{ConTyp4.name}}
+                    </mat-option>
+                  </mat-select>
+
+                  <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                </mat-form-field>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-6">
+                <form class="example-form">
+
+                  <mat-form-field
+                    hintLabel="You Must Choose a Does Does the Patient/Carer/Parent Require Written Information In Another Format."
+                    appearance="fill">
+                    <mat-label>Does the Patient/Carer/Parent Require Written Information In Another Format?</mat-label>
+                    <mat-select [formControl]="ConTyp4Control">
+                      <mat-option>--</mat-option>
+                      <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                        {{ConTyp4.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+
+
+
+            </div>
+            <div class="row" style="margin-left: 10px;">
+              <div class="col-xs-12  col-md-12">
+                <form class="example-form">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Client Notes1</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+                </form>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
+                <mat-form-field hintLabel="You MUst Choose Disability" appearance="fill">
+                  <mat-label>Disability</mat-label>
+                  <mat-select [formControl]="ConTyp1Control" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let ConTyp1 of ConTyp1" [value]="ConTyp1">
+                      {{ConTyp1.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="ConTyp1Control.hasError('required')">You must choose a Contact Type</mat-error>
+                  <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                </mat-form-field>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-3">
+                <form class="example-form">
+
+                  <mat-form-field hintLabel="You MUst Choose Medical Condition" appearance="fill">
+                    <mat-label>Medical Condition</mat-label>
+                    <mat-select [formControl]="ConTyp1Control" required>
+                      <mat-option>--</mat-option>
+                      <mat-option *ngFor="let ConTyp1 of ConTyp1" [value]="ConTyp1">
+                        {{ConTyp1.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+
+              <div class="col-xs-12 col-sm-3">
+                <mat-form-field hintLabel="You MUst Choose Mental Health - Prescribed Medication" appearance="fill">
+                  <mat-label>Mental Health - Prescribed Medication</mat-label>
+                  <mat-select [formControl]="ConTyp1Control" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let ConTyp1 of ConTyp1" [value]="ConTyp1">
+                      {{ConTyp1.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
