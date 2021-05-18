@@ -1,0 +1,1343 @@
+<body>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"
+    />
+  </head>
+  <div class="container-fluid">
+    <mat-toolbar color="primary" style="margin-top: 10px">
+      <span class="fill-remaining-space">SC Record Of Attendence </span>
+    </mat-toolbar>
+
+    <div
+      class="card-body text-info"
+      id="cardbody"
+      style="border: 1px solid rgb(247, 240, 240)"
+    >
+      <div class="grid-body no-border">
+        <div
+          class="container-fluid"
+          style="background-color: rgb(232, 227, 222); border: 1px solid white"
+        >
+          <div class="row">
+            <div class="col-md-12">
+              <label id="lblConsentMessage">
+                <p style="margin-top: 20px">
+                  <span style="font-size: 24px; margin-top: 20px"
+                    >Information</span
+                  >
+                </p>
+                <p>
+                  The KCHFT Service gives information and guidance on a range of
+                  issues, including:
+                </p>
+                <table
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  class="cke_show_border"
+                >
+                  <tbody>
+                    <tr>
+                      <td style="height: 32px; width: 348px">
+                        <p>Weight Loss</p>
+                        <p>Increase in Physical Activity</p>
+                      </td>
+                      <td style="height: 32px; width: 348px">
+                        <p>Improve your mental wellbeing</p>
+                        <p>Stopping Smoking</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <mat-label
+                  >To enable the service to give you accurate advice, we
+                  sometimes need to share the details you have provided with
+                  others such as, your GP Practice, Pharmacy, other departments
+                  within the Council and any other services associated to your
+                  ongoing care.</mat-label
+                >
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div
+                class="form-group"
+                id="dv_TheClientHasObjectedToSharingInformation"
+              >
+                <label class="form-label" style="float: left">
+                  The client has objected to sharing information
+
+                  <mat-checkbox
+                    style="margin-left: 10px"
+                    (click)="toogle()"
+                  ></mat-checkbox>
+                </label>
+              </div>
+            </div>
+            <div
+              *ngIf="showme"
+              class="col-md-12 hidden"
+              id="dv_txtNotesTheClientHasObjectedToSharingInformation"
+            >
+              <div class="form-group">
+                <label class="form-label"> Notes </label>
+                <div class="controls">
+                  <textarea
+                    class="form-control capitalize"
+                    id="txtNotesTheClientHasObjectedToSharingInformation"
+                    rows="8"
+                    cols="2"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div
+              class="row col-md-12"
+              id="dv_txtThePersonHasBeenGivenInformationExplainingHowWeUseTheirInformation"
+            >
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-label" style="float: left !important">
+                    The person has been given information explaining<br />
+                    how we use their information
+                    <mat-checkbox
+                      (click)="showdate()"
+                      style="margin-left: 10px"
+                    ></mat-checkbox
+                  ></label>
+                  <div class="controls" style="float: left !important"></div>
+                  <div *ngIf="date" class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <mat-form-field
+                        class="example-full-width"
+                        appearance="fill"
+                      >
+                        <mat-label>Choose Date</mat-label>
+                        <input matInput [matDatepicker]="picker" />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <mat-expansion-panel data-aos="fade-up" style="margin-top: 10px">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h4>
+                <b>Contact You In 26 Weeks</b>
+              </h4>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div
+            data-aos="fade-up"
+            id="dvMainContactYouInTwentySixWeeks"
+            class=""
+          >
+            <div
+              class="grid simple bluetheme"
+              id="divMainContactYouInTwentySixWeeks"
+            >
+              <div class="no-border cursor-pointer collapsebar"></div>
+              <div class="grid-body no-border" style="display: block">
+                <div class="questionlisting">
+                  <ul class="list-unstyled">
+                    <li>
+                      <div class="row">
+                        <div class="col-sm-8 col-md-8">
+                          <label>
+                            We would like to contact you in 26 weeks time and 52
+                            weeks time regarding the service you have accessed,
+                            are you happy for us to do so?
+                          </label>
+                        </div>
+                        <div class="col-sm-4 col-md-4" style="margin-top: 20px">
+                          <div class="pretty p-switch">
+                            <input type="radio" name="switch1" />
+                            <div class="state p-success">
+                              <label>Yes</label>
+                            </div>
+                          </div>
+
+                          <div class="pretty p-switch p-fill">
+                            <input type="radio" name="switch1" />
+                            <div class="state p-success">
+                              <label>NO</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="hidden" id="">
+              <script type="text/javascript" language="javascript"></script>
+              <pre class="js"></pre>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <div class="form-group" data-aos="fade-up">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Current Smoking Status</mat-label>
+                <mat-select
+                  [formControl]="ConTyp1Control"
+                  required
+                  (selectionChange)="onOptionsSelected($event.value)"
+                >
+                  <mat-option>--</mat-option>
+                  <mat-option
+                    *ngFor="let ConTyp1 of ConTyp1"
+                    [value]="ConTyp1.id"
+                  >
+                    {{ ConTyp1.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ConTyp1Control.hasError('required')"
+                  >You must choose a Contact Type</mat-error
+                >
+                <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="recent" class=" col-sm-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Recent Quit</mat-label>
+                <mat-select [formControl]="ConTyp2Control" required>
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let ConTyp2 of ConTyp2" [value]="ConTyp2">
+                    {{ ConTyp2.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="ConTyp2Control.hasError('required')"
+                ></mat-error>
+                <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+              </mat-form-field>
+            </div>
+        
+
+            <div *ngIf="recent" class=" col-md-3">
+              <mat-form-field color="accent" appearance="fill">
+                <mat-label>Actual Quit Date </mat-label>
+                <input matInput [matDatepicker]="picker3" />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker3"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Date of Quit </mat-label>
+                <input matInput [matDatepicker]="picker2" />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+        
+          
+            <div class=" col-sm-3">
+              <mat-form-field appearance="fill">
+                <mat-label>CO Taken</mat-label>
+                <mat-select
+                  [formControl]="ConTyp3Control"
+                  required
+                  (selectionChange)="COtoken($event.value)"
+                >
+                  <mat-option>--</mat-option>
+                  <mat-option
+                    *ngFor="let ConTyp3 of ConTyp3"
+                    [value]="ConTyp3.id"
+                  >
+                    {{ ConTyp3.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                  >You Must Choose Co Taken
+                </mat-error>
+                <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div *ngIf="co" class="col-sm-3">
+              <mat-form-field appearance="fill">
+                <mat-label>CO Reading</mat-label>
+                <mat-select
+                  input
+                  type="text"
+                  [formControl]="ConTyp3Control"
+                  required
+                >
+                </mat-select>
+                <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                  >You Must Choose Co Taken
+                </mat-error>
+                <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+              </mat-form-field>
+            </div>
+          </div>
+     
+        </div>
+        <div
+          class="grid simple bluetheme"
+          style="margin-top: 15px; border: 1px solid black"
+          data-aos="fade-up"
+        >
+          <div
+            class="grid-title no-border ReportInnerTabs cursor-pointer collapsebar"
+          >
+            <h4>Attendance <span class="semi-bold">List</span></h4>
+            <div class="tools">
+              <a href="javascript:;"></a
+              ><a class="reload" href="javascript:;"></a>
+            </div>
+          </div>
+          <div class="grid-body" style="display: block">
+            <table style>
+              <tbody>
+                <tr>
+                  
+                    <label class="bold">Total Number Of Weeks Given:</label>
+                
+                
+                    <label
+                      id="lblTotalNumberOfWeeksGivenForAttendance"
+                      class="bold"
+                      >0</label
+                    >
+              
+                </tr>
+              </tbody>
+            </table>
+            <div
+              id="gvHistoryList_wrapper"
+              class="dataTables_wrapper form-inline dt-bootstrap no-footer"
+            >
+              <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table
+                    class="col-sm-12"
+                    id="gvHistoryList"
+                    class="table table-striped griddatetable display responsive no-wrap no-footer dtr-inline dataTable"
+                    role="grid"
+                  >
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          Sr.
+                        </th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          Notes
+                        </th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          Date
+                        </th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          CO Reading
+                        </th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          Product(s)
+                        </th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                          Voucher Number
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="odd">
+                        <td valign="top" colspan="6" class="dataTables_empty">
+                          No data available in table
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-7"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          style="margin-top: 15px; margin-bottom: 0px"
+          data-aos="fade-up"
+          id="dvMethodUsedForQuit"
+        >
+          <div class="col-sm-12 col-xs-12 col-md-3">
+            <div class="form-group">
+              <label
+                id="ContentPlaceHolder1_MethodUsedForQuitToolTip"
+                style="color: Red; margin-top: 0"
+                >(Only select this box if the product was dispensed this week.
+                If you are not claiming, please select support only.)</label
+              >
+            </div>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-md-3">
+            <div *ngIf="ad" class="form-group">
+              <label
+                id="ContentPlaceHolder1_MethodUsedForQuitToolTip"
+                style="color: Red; margin-top: 0"
+                >( You should only be issuing maximum 3 weeks product )</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 0px" data-aos="fade-up">
+          <div class="col-xs-12 col-sm-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Method Used to Quit</mat-label>
+              <mat-select required (selectionChange)="onSelect($event)">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let states of state" [value]="states.no">
+                  {{ states.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div *ngIf="ad" class="col-xs-12 col-sm-3">
+            <ng-select
+              [(ngModel)]="selectedPeople"
+              appendTo="body"
+              placeholder="Select item"
+              [multiple]="true"
+              bindLabel="name"
+              [closeOnSelect]="false"
+              [hideSelected]="true"
+              (ngModelChange)="onSelct($event)"
+            >
+              <ng-option [value]="item.id" *ngFor="let item of city">
+                {{ item.name }}
+              </ng-option>
+            </ng-select>
+
+            <!-- <
+              mat-hint>{{ConTyp1.value?.sound}}</> -->
+          </div>
+       
+         
+            <div *ngIf="val" class="col-xs-12 col-sm-6 col-md-3">
+              <mat-form-field appearance="outline">
+                <mat-label>NRT Formulation Inhalator 01 </mat-label>
+                <input matInput type="text" id="txtForename" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint>Hint Text</mat-hint>
+              </mat-form-field>
+            </div>
+            <div *ngIf="val" class="col-xs-12 col-sm-6 col-md-3">
+              <mat-form-field appearance="outline">
+                <mat-label>NRT Formulation Inhalator 01 </mat-label>
+                <input matInput type="text" id="txtForename" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint>Hint Text</mat-hint>
+              </mat-form-field>
+            </div>
+          
+        
+            <div *ngIf="val" class="col-xs-12 col-sm-6 col-md-3">
+              <mat-form-field appearance="outline">
+                <mat-label>NRT Formulation Inhalator 01 </mat-label>
+                <input matInput type="text" id="txtForename" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint>Hint Text</mat-hint>
+              </mat-form-field>
+            </div>
+            <div *ngIf="val" class="col-xs-12 col-sm-6 col-md-3">
+              <mat-form-field appearance="outline">
+                <mat-label>NRT Formulation Inhalator 01 </mat-label>
+                <input matInput type="text" id="txtForename" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint>Hint Text</mat-hint>
+              </mat-form-field>
+            </div>
+  
+       
+            <div *ngIf="val" class="col-xs-12 col-sm-6 col-md-3">
+              <mat-form-field appearance="outline">
+                <mat-label>NRT Formulation Inhalator 01 </mat-label>
+                <input matInput type="text" id="txtForename" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint>Hint Text</mat-hint>
+              </mat-form-field>
+            </div>
+          
+      
+        
+          <div  data-aos="fade-up" class="col-xs-12 col-sm-6 col-md-3">
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Dispensing Notes</mat-label>
+                <textarea
+                  matInput
+                  #message
+                  maxlength="256"
+                  placeholder="Ex. I need help with..."
+                ></textarea>
+                <mat-hint align="start"
+                  ><strong>Don't disclose personal info</strong>
+                </mat-hint>
+                <mat-hint align="end"
+                  >{{ message.value.length }} / 256</mat-hint
+                >
+              </mat-form-field>
+            </form>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3" data-aos="fade-up">
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Dispensing Notes</mat-label>
+                <textarea
+                  matInput
+                  #message
+                  maxlength="256"
+                  placeholder="Ex. I need help with..."
+                ></textarea>
+                <mat-hint align="start"
+                  ><strong>Don't disclose personal info</strong>
+                </mat-hint>
+                <mat-hint align="end"
+                  >{{ message.value.length }} / 256</mat-hint
+                >
+              </mat-form-field>
+            </form>
+          </div>
+      
+          <div class="col-xs-12 col-sm-3"   data-aos="fade-up">
+            <mat-form-field appearance="fill">
+              <mat-label>Advisor 4 weeks Outcome</mat-label>
+              <mat-select [formControl]="ConTyp4Control" required>
+                <mat-option>--</mat-option>
+                <mat-option
+                  *ngFor="let ConTyp4 of ConTyp4"
+                  [value]="ConTyp4.id"
+                >
+                  {{ ConTyp4.name }}
+                </mat-option>
+              </mat-select>
+
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div *ngIf="method" class="col-xs-12 col-sm-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Overall method Used for Quit </mat-label>
+              <mat-select [formControl]="ConTyp5Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp5 of ConTyp5" [value]="ConTyp5">
+                  {{ ConTyp5.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+        
+       
+          <div class="col-xs-12 col-sm-3"  style="margin-top: 0px" data-aos="fade-up">
+            <mat-form-field appearance="fill">
+              <mat-label>Advisor 26 Week Outcome</mat-label>
+              <mat-select [formControl]="ConTyp4Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                  {{ ConTyp4.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Advisor 52 Week Outcome</mat-label>
+              <mat-select [formControl]="ConTyp4Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                  {{ ConTyp4.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+        
+      
+          <div class="col-xs-12 col-sm-3" style="margin-top: 0px" data-aos="fade-up">
+            <mat-form-field appearance="fill">
+              <mat-label>Contact Outcome </mat-label>
+              <mat-select [formControl]="ConTyp4Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                  {{ ConTyp4.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Episode Closure Reason</mat-label>
+              <mat-select [formControl]="ConTyp4Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp4 of ConTyp4" [value]="ConTyp4">
+                  {{ ConTyp4.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >You Must Choose A Method Use to Quit
+              </mat-error>
+              <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+            </mat-form-field>
+          </div>
+        
+        </div>
+      </div>
+      <div 
+        data-aos="fade-up"
+        id="ContentPlaceHolder1_dvAttendanceHistory"
+        class="grid simple bluetheme"
+        style="position: static; zoom: 1; margin-top: 25px; border: 1px solid grey"
+      >
+        <div
+          class="grid-title no-border ReportInnerTabs cursor-pointer collapsebar"
+        >
+          <h4>Attendance <span class="semi-bold">List</span></h4>
+        </div>
+        <div class="grid-body" style="display: block">
+          <div class="col-xs-12 col-sm-6">
+            <ng-select
+              [(ngModel)]="selectedPeople"
+              [items]="ConTyp6"
+              appendTo="body"
+              placeholder="Select item"
+              [multiple]="true"
+              bindLabel="name"
+              [closeOnSelect]="false"
+              [hideSelected]="true"
+              (ngModelChange)="onSelct($event)"
+            >
+              <ng-option [value]="item.id" *ngFor="let item of city">
+                {{ item.name }}
+              </ng-option>
+            </ng-select>
+
+            <!-- <
+            mat-hint>{{ConTyp1.value?.sound}}</> -->
+          </div>
+        </div>
+        <div class="container-fluid" data-aos="fade-up">
+          <div
+            class="grid simple bluetheme"
+            style="
+              position: static;
+              zoom: 1;
+              margin-bottom: 15px;
+              border: 1px solid grey;
+            "
+          >
+            <div
+              class="grid-title no-border ReportInnerTabs cursor-pointer collapsebar"
+            >
+              <h4>Service And Program <span class="semi-bold">List</span></h4>
+            </div>
+            <div class="container-fluid" data-aos="fade-up">
+              <div class="grid-body" style="margin-top: 10px; display: block">
+                <table id="gvService_Ctrl" class="table">
+                  <tbody>
+                    <tr class="grid-title">
+                      <th width="20%" style="color: white; text-align: center">
+                        Service
+                      </th>
+                      <th width="40%" style="color: white; text-align: center">
+                        Reason
+                      </th>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        Specialist Weight Management Service<input
+                          type="hidden"
+                          value="4754"
+                        />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="SpecialistWeightManagementService"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        4 Healthy Weight<input type="hidden" value="4755" />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="4HealthyWeight"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        GP<input type="hidden" value="4756" />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="GP"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        Clinical Nutrition and Dietetic Service<input
+                          type="hidden"
+                          value="4757"
+                        />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="ClinicalNutritionandDieteticService"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        Exercise Referral Scheme<input
+                          type="hidden"
+                          value="4758"
+                        />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="ExerciseReferralScheme"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center">
+                        Expert Patient Programme<input
+                          type="hidden"
+                          value="4759"
+                        />
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          cols="40"
+                          class="form-control"
+                          id="ExpertPatientProgramme"
+                        ></textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+      class="grid simple bluetheme"
+      data-aos="fade-left"
+      id="divDispensing"
+      style="margin-top: 15px; margin-bottom: 20px; border: 1px solid"
+    >
+    <div class="grid-title no-border cursor-pointer collapsebar">
+      <h4>
+        <span class="semi-bold">ONE YOu Survey</span>
+      </h4>
+    </div>
+    <div class="container-fluid">
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+        <section class="example-section">
+          <label id="example-radio-group-label">One You Service Survey</label><br>
+          <mat-checkbox (click)="survey()" class="example-margin" style="margin-left: 20px;"></mat-checkbox>
+        </section>
+    
+      </div>
+     
+    </div>
+    <div *ngIf="survy" class="container-fluid">
+      <div
+      class="grid simple bluetheme"
+      data-aos="fade-left"
+      id="divDispensing"
+      style="margin-top: 15px; margin-bottom: 20px; border: 1px solid"
+    >
+    <div class="grid-title no-border cursor-pointer collapsebar">
+      <h4>
+        <span class="semi-bold">GENERAL INFORMATION</span>
+      </h4>
+    </div>
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-6 col-md-12 " >
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <p style="color: black; margin: 10px;"><strong>Your questionnaire can be viewed below. Please scroll to the bottom to see a breakdown of summary information relating to this questionnaire.</strong></p>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-6 " >
+          <p style="color: black; margin: 10px;"><strong> Client Id</strong>.</p>
+          </div>
+          <div class="col-xs-12 col-md-6 " >
+            <input matinput value="266404" readonly style="margin: 10px;">
+            </div>
+        </div>
+
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-6 " >
+          <p style="color: black; margin: 10px;"><strong> In Which Area Were You Seen?</strong>.</p>
+          </div>
+          <div class="col-xs-12 col-md-6 " >
+            <input matinput value="" readonly style="margin: 10px;">
+            </div>
+        </div>
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-6 " >
+          <p style="color: black; margin: 10px;"><strong> Where Did We See You?</strong>.</p>
+          </div>
+          <div class="col-xs-12 col-md-6 " >
+            <input matinput value="A E Hobbs Pharmacy" readonly style="margin: 10px;">
+            </div>
+        </div>
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-6 " >
+          <p style="color: black; margin: 10px;"><strong>Please Specify Where You Were Seen</strong>.</p>
+          </div>
+          <div class="col-xs-12 col-md-6 " >
+            <input matinput value="A E Hobbs Pharmacy Smoke " readonly style="margin: 10px;">
+            </div>
+        </div>
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-6 " >
+          <p style="color: black; margin: 10px;"><strong>Please Specify The Name Of Your Advisor</strong>.</p>
+          </div>
+          <div class="col-xs-12 col-md-6 " >
+            <input matinput value="Maria Lorite" readonly style="margin: 10px;">
+            </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+    <div
+    class="grid simple bluetheme"
+    data-aos="fade-left"
+    id="divDispensing"
+    style="margin-top: 15px; margin-bottom: 20px; border: 1px solid"
+  >
+  <div class="grid-title no-border cursor-pointer collapsebar">
+    <h4>
+      <span class="semi-bold">THINKING ABOUT THE SERVICE YOU RECEIVED</span>
+    </h4>
+  </div>
+  <div class="container-fluid">
+    <div class="col-xs-12 col-sm-12 col-md-12 " >
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >        
+          <p style="color: black; margin: 10px; width: 100%;">
+            <strong> 1. Overall how would you rate the quality of the service you have received?</strong>
+          <mat-button-toggle-group style="width:100%;" appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="bold">Excellent</mat-button-toggle>
+            <mat-button-toggle value="italic">Very Good</mat-button-toggle>
+            <mat-button-toggle value="underline">Good</mat-button-toggle>
+            <mat-button-toggle value="bold">Fair</mat-button-toggle>
+            <mat-button-toggle value="italic">Poor</mat-button-toggle>
+            <mat-button-toggle value="underline">Don't kmow/Can't Remember</mat-button-toggle>
+          </mat-button-toggle-group>
+        </p>    </div>
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 " >
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"><strong> 2. If there are any comments or suggestions you would like to make about the service please let us know here</strong>.           
+            <mat-form-field class="example-full-width">
+              <mat-label>Notes</mat-label>
+              <textarea matInput #message maxlength="256" placeholder="Ex. I need help with..."></textarea>
+              <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field> 
+          </p>
+      </div>
+       
+      </div>
+
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"><strong> 3. Would you be happy for us to contact you and use your views, ideas and suggestions for the future development of the service?</strong>.</p>
+        </div>
+        <div class="col-xs-12 col-md-12 " >
+          <mat-button-toggle-group style="width:100%;" appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="bold">Yes - please give us your name,telephone number and email address</mat-button-toggle>
+            <mat-button-toggle value="italic">No</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+          <div class="col-xs-12 col-md-12 " >
+          <div class="row">
+    
+          <div class="col-xs-12 col-md-4 " >
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-md-3 " >
+            <mat-form-field appearance="fill">
+              <mat-label>Telephone No</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-md-4 " >
+            <mat-form-field appearance="fill">
+              <mat-label>Email Address</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"><strong> 4. How likely are you to recommend this service to friends and family if they needed similar care or treatment?</strong>.
+          <mat-button-toggle-group style="width:100%;" appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="extreme">Extremely Likely</mat-button-toggle>
+            <mat-button-toggle value="like">Likely</mat-button-toggle>
+            <mat-button-toggle value="nor">Neither Likely Nor unlikely</mat-button-toggle>
+            <mat-button-toggle value="unlikely">Unlikely</mat-button-toggle>
+            <mat-button-toggle value="unlike">Extremely UnLikely</mat-button-toggle>
+            <mat-button-toggle value="kno">Don't know</mat-button-toggle>
+            <mat-button-toggle value="comm">Comments</mat-button-toggle>
+          </mat-button-toggle-group></p>
+        </div>
+      </div>
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"><strong> 5. Please tell us why you gave that response</strong>.           
+            <mat-form-field class="example-full-width">
+              <mat-label>Notes</mat-label>
+              <textarea matInput #message maxlength="256" placeholder="Ex. I need help with..."></textarea>
+              <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field> 
+          </p>
+      </div>
+       
+      </div>
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"> 6. How confident do you feel about maintaining the behaviour change/s you have adopted when you leave this service? <strong>(1 not confident 10 extremely confident)</strong>.
+        
+          <mat-button-toggle-group style="width:100%;" appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="extreme">1</mat-button-toggle>
+            <mat-button-toggle value="like">2</mat-button-toggle>
+            <mat-button-toggle value="nor">3</mat-button-toggle>
+            <mat-button-toggle value="unlikely">4</mat-button-toggle>
+            <mat-button-toggle value="unlike">5</mat-button-toggle>
+            <mat-button-toggle value="kno">6</mat-button-toggle>
+            <mat-button-toggle value="comm">7</mat-button-toggle>
+            <mat-button-toggle value="unlike">8</mat-button-toggle>
+            <mat-button-toggle value="kno">9</mat-button-toggle>
+            <mat-button-toggle value="comm">10</mat-button-toggle>
+          </mat-button-toggle-group>
+        
+        </p>
+        </div>
+      
+      </div>
+      <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 " >
+        <p style="color: black; margin: 10px;"><strong>7. What would be your preferred appointment type?</strong>.
+        
+          <mat-button-toggle-group style="width:100%;" appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="extreme">Face-To_Face</mat-button-toggle>
+            <mat-button-toggle value="like">Telephone</mat-button-toggle>
+            <mat-button-toggle value="nor">Video Call</mat-button-toggle>
+          </mat-button-toggle-group>
+        
+        </p>
+        </div>
+        </div>
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-12 " >
+          <p style="color: black; margin: 10px;"><strong> 8. What prevented you from accessing your preferred appointment type (if applicable)
+          </strong>.           
+              <mat-form-field class="example-full-width">
+                <mat-label>Notes</mat-label>
+                <textarea matInput #message maxlength="256" placeholder="Ex. I need help with..."></textarea>
+                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+              </mat-form-field> 
+            </p>
+        </div>
+         
+        </div>
+        <div class="row" style="background-color: rgb(215, 226, 223); margin: 10px;">
+          <div class="col-xs-12 col-sm-12 col-md-12 " >
+          <p style="color: black; margin: 10px;"><strong> 9. If video calls are not your preferred appointment type, what are your reasons for this?
+          </strong>.     </p>      
+          <div class="col-xs-12 col-sm-6">
+            <ng-select
+              [(ngModel)]="selectedPeople"
+              [items]="ConTyp8"
+              appendTo="body"
+              placeholder="Select item"
+              [multiple]="true"
+              bindLabel="name"
+              [closeOnSelect]="false"
+              [hideSelected]="true"
+              (ngModelChange)="onSelct($event)"
+            >
+              <ng-option [value]="item.id" *ngFor="let item of city">
+                {{ item.name }}
+              </ng-option>
+            </ng-select>
+
+            <!-- <
+            mat-hint>{{ConTyp1.value?.sound}}</> -->
+          </div>
+            
+
+
+
+
+
+
+        </div>
+         
+        </div>
+     
+    </div>
+    </div>
+  </div>
+    </div>
+    
+  </div>
+</div>
+
+
+      <div
+        class="grid simple bluetheme"
+        data-aos="fade-left"
+        id="divDispensing"
+        style="margin-top: 15px; margin-bottom: 20px; border: 1px solid"
+      >
+        <div class="grid-title no-border cursor-pointer collapsebar">
+          <h4>
+            <span class="semi-bold">Dispensing</span>
+          </h4>
+        </div>
+        <div class="container-fluid">
+          <div class="grid-body no-border" style="display: block">
+            <div
+              class="form-container-main"
+              id="MainDiv_Dispensing"
+              style="display: none"
+            >
+              <div class="row">
+                <div class="col-sm-3 ArrangeDiv ArrangeCap">
+                  <div class="form-group">
+                    <label class="form-label"> Date Of ROA</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv">
+                  <div class="form-group">
+                    <div class="controls" id="lblDateOfROA_Dispensing"></div>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv ArrangeCap">
+                  <div class="form-group">
+                    <label class="form-label"> Attended Venue</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv">
+                  <div class="form-group">
+                    <div
+                      class="controls"
+                      id="lblAttendedVenue_Dispensing"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 ArrangeDiv ArrangeCap">
+                  <div class="form-group">
+                    <label class="form-label"> Attended Clinic</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv">
+                  <div class="form-group">
+                    <div
+                      class="controls"
+                      id="lblAttendedClinic_Dispensing"
+                    ></div>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv ArrangeCap">
+                  <div class="form-group">
+                    <label class="form-label"> Advisor</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 ArrangeDiv">
+                  <div class="form-group">
+                    <div class="controls" id="lblAdvisor_Dispensing"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 ArrangeDiv ArrangeCap">
+                  <div class="form-group">
+                    <label class="form-label">
+                      Advising Pharmacological Support</label
+                    >
+                  </div>
+                </div>
+                <div class="col-sm-9 ArrangeDiv">
+                  <div class="form-group">
+                    <div
+                      class="controls"
+                      id="lblAdvisingPharmacologicalSupport_Dispensing"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-container-main" id="tblPS_amountlbl"></div>
+            </div>
+            <div class="form-container-main">
+              <div class="row">
+                <div class="col-sm-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <mat-select [formControl]="ConTyp7Control" required>
+                      <mat-option value="Champix">Champix</mat-option>
+                      <mat-option value="NRT">NRT </mat-option>
+                    </mat-select>
+
+                    <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                  <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Actual Quit Date </mat-label>
+                    <input matInput [matDatepicker]="picker3" />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker3"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker3></mat-datepicker>
+                  </mat-form-field>
+                </div>
+            
+           
+         
+                <mat-form-field class="col-xs-12 col-sm-6 col-md-3">
+                  <mat-label>Select a Time Click Here </mat-label>
+                  <input
+                    matInput
+                    #message
+                    placeholder="Time Selector..."
+                    [ngxTimepicker]="fullTime"
+                    [format]="24"
+                    readonly
+                  />
+                  <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+                  <mat-hint align="end"> Time</mat-hint>
+                </mat-form-field>
+
+                <div class="col-sm-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Service Provider</mat-label>
+                    <mat-select [formControl]="ConTyp7Control" required>
+                      <mat-option value="14">!4 Road Sp</mat-option>
+                      <mat-option value="AE">A E Hobby Pharmacy </mat-option>
+                      <mat-option value="Ackers"
+                        >Ackers Chemists(Swanscombe)
+                      </mat-option>
+                      <mat-option value="Ad">Advisor </mat-option>
+                      <mat-option value="sp">Advisor Sp</mat-option>
+                      <mat-option value="ali">Alice Sp </mat-option>
+                      <mat-option value="asda"
+                        >Asda pharmacy (Ashford)</mat-option
+                      >
+                      <mat-option value="green"
+                        >Asda pharmacy (Greenhithe)
+                      </mat-option>
+                    </mat-select>
+
+                    <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>User Access Group</mat-label>
+                    <mat-select [formControl]="ConTyp7Control" required>
+                      <mat-option value="14">!4 Road Sp</mat-option>
+                      <mat-option value="AE">Maidstone </mat-option>
+                    </mat-select>
+
+                    <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                  </mat-form-field>
+                </div>
+      
+                <mat-form-field class="col-xs-12 col-sm-6 col-md-3">
+                  <mat-label>Dispensing Venue</mat-label>
+                  <input matInput #message placeholder="Add Dispensing Venue" />
+
+                  <mat-hint align="end"> Time</mat-hint>
+                </mat-form-field>
+
+                <div class="col-sm-3">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Advisor</mat-label>
+                    <mat-select>
+                      <mat-option value="abimbola">Abimbola</mat-option>
+                      <mat-option value="Abyal">Abyal Earl </mat-option>
+                      <mat-option value="admin">Admin Advisor </mat-option>
+                      <mat-option value="ali">Admin ali </mat-option>
+                      <mat-option value="factor"
+                        >Admin Factor Authentication</mat-option
+                      >
+                      <mat-option value="fix">Admin Fix </mat-option>
+                      <mat-option value="maid">Admin Maidstone</mat-option>
+                      <mat-option value="01">Advisor 01 </mat-option>
+                    </mat-select>
+
+                    <!-- <mat-hint>{{ConTyp1.value?.sound}}</mat-hint> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3" >
+                  <mat-form-field appearance="fill">
+                    <mat-label>Number Of Prescription Charges</mat-label>
+                    <mat-select>
+                      <mat-option value="0">0</mat-option>
+                      <mat-option value="1">1 </mat-option>
+                      <mat-option value="2">2 </mat-option>
+                      <mat-option value="3">3 </mat-option>
+                      <mat-option value="4">4</mat-option>
+                    </mat-select>
+                    <mat-hint style="margin-bottom: 30px;" align="start">
+                      Unless exempt, the client will pay only the first
+                      prescription charge per product.</mat-hint
+                    >
+                  </mat-form-field>
+                </div>
+           
+            
+          </div>
+        </div>
+            <div class="form-container-main">
+              <div
+                class="row"
+                id="trIsPharmacologicalSupportDispensed"
+                style="display: none"
+              >
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">
+                      Pharmacological Support Dispensed:</label
+                    >
+                    <div class="controls">
+                      <select
+                        class="form-control required isrequired selectized"
+                        id="chklistPharmacologicalSupportDispensed"
+                        data-trigger="manual"
+                        data-content="You must choose a Pharmacological Support Dispensed."
+                        multiple="multiple"
+                        tabindex="-1"
+                        style="display: none"
+                      ></select>
+                      <div
+                        class="selectize-control form-control required isrequired multi plugin-remove_button"
+                      >
+                        <div class="selectize-input items not-full has-options">
+                          <input
+                            type="text"
+                            autocomplete="off"
+                            tabindex="0"
+                            style="width: 4px"
+                          />
+                        </div>
+                        <div
+                          class="selectize-dropdown multi form-control required isrequired plugin-remove_button"
+                          style="display: none"
+                        >
+                          <div class="selectize-dropdown-content"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-container-main" id="tblPSD"></div>
+            <div class="form-container-main">
+              <div class="row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>

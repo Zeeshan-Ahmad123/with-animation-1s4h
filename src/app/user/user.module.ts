@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClinicRoutingModule } from './clinic-routing.module';
-import { ClinicInfoComponent } from './clinic-info/clinic-info.component';
-import{LayoutModule} from  '../layout/layout.module';
-import{MatToolbarModule} from '@angular/material/toolbar'
+import {LayoutModule} from '../layout/layout.module'
+import { UserRoutingModule } from './user-routing.module';
+import { UserAccessComponent } from './user-access/user-access.component';
+import {MatToolbarModule} from '@angular/material/toolbar'
 import{MatTableModule} from '@angular/material/table';
 import{MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -19,16 +19,20 @@ import{MatExpansionModule} from '@angular/material/expansion'
 import{MatIconModule} from '@angular/material/icon'
 import{MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import{MatTabsModule} from '@angular/material/tabs';
+import{MatTabsModule} from '@angular/material/tabs'
+
 
 @NgModule({
-  declarations: [ClinicInfoComponent],
+  declarations: [UserAccessComponent],
   imports: [
     CommonModule,
-    ClinicRoutingModule,
+    UserRoutingModule,
+    LayoutModule,
+    MatToolbarModule,
+    CommonModule,
     LayoutModule,
     MatTableModule,
-    MatButtonModule,
+    MatButtonModule, 
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
@@ -46,17 +50,8 @@ import{MatTabsModule} from '@angular/material/tabs';
     MatAutocompleteModule,
     ScrollingModule,
     MatTabsModule,
-    MatToolbarModule,
-
-
-
-
-
-
-
-
-
-
+    MatToolbarModule
+    
   ]
 })
-export class ClinicModule { }
+export class UserModule { }

@@ -5,9 +5,8 @@
 export const environment = {
   production: false,
   // apiUrl:'http://localhost:50519/',
-  // apiUrl:'http://localhost:2209/',
-     apiUrl:'http://localhost/WebApis_Latest/', 
-  
+   apiUrl:'http://localhost:2209/',
+
 };
 
 /*

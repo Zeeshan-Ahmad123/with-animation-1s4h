@@ -11,7 +11,9 @@ const routes: Routes = [
   {path:'smokefree',loadChildren:'./smoke-free/smoke-free.module#SmokeFreeModule'},
   {path:'appointment',loadChildren:'./appointment/appointment.module#AppointmentModule'},
   {path:'clinic',loadChildren:'./clinic/clinic.module#ClinicModule'},
+  {path:'Kent',loadChildren:'./Kent/kent.module#KentModule'},
 
+  {path:'user-access',loadChildren:'./user/user.module#UserModule'},
 
 
 

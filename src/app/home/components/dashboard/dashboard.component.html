@@ -21,7 +21,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-3">
                     <mat-form-field appearance="outline">
                       <mat-label>Forename</mat-label>
-                      <input matInput placeholder="Forename">
+                      <input matInput [(ngModel)]="txtForename"  type="text" id="txtForename" >
                       <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                       <mat-hint>Hint Text</mat-hint>
                     </mat-form-field>
@@ -29,7 +29,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-3">
                     <mat-form-field appearance="outline">
                       <mat-label>Surname</mat-label>
-                      <input matInput placeholder="Surname">
+                      <input matInput [(ngModel)]="txtSurname"  type="text" id="txtSurname" >
                       <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                       <mat-hint>Hint Text</mat-hint>
                     </mat-form-field>
@@ -98,71 +98,45 @@
 
 
 
-    <div class="card mb-12" id="clientsearchResult" style="display: none;">
+    <div class="card mb-4">
       <div class="card-body">
-        <mat-form-field>
-          <mat-label>Filter</mat-label>
-          <input matInput (keyup)="applyFilter($event)" placeholder="ABC..." #input>
-        </mat-form-field>
 
-        <div class="mat-elevation-z8">
-          <table mat-table [dataSource]="dataSource" matSort>
+          <div class="table-responsive">
+                <nav class="navbar">
+          <input class="form-control " type ="text" name="Forename" [(ngModel)]="Forename" (input)="Search()"
+          placeholder="Enter Clied Forename to Search">
+        </nav>
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                      <tr>
+                          <th (click)="sort('id')">ClientId &nbsp;<i class="fa fa-sort"></i></th>
+                          <th (click)="sort('id')">NHSNumber &nbsp;<i class="fa fa-sort"></i></th>
+                          <th  (click)="sort('id')" >Forename &nbsp;<i class="fa fa-sort"></i></th>
+                          <th (click)="sort('id')">Surname &nbsp;<i class="fa fa-sort"></i></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of clientList |orderBy:key:reverse | paginate: {
+                      itemsPerPage:10,
+                      currentPage: page
+                    }">
+                          <td>{{item.ClientId}}</td>
+                          <td>{{item.NHSNumber}}</td>
+                          <td>{{item.Forename}}</td>
+                          <td>{{item.Surname}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <pagination-controls maxsize="5" directionLinks="true"(pageChange) ="page =$event"> </pagination-controls>
 
-            <!-- ID Column -->
-            <ng-container matColumnDef="id">
-              <th mat-header-cell style="font-weight: 500; color:black; font-size:14px;" *matHeaderCellDef
-                mat-sort-header> Client ID </th>
-              <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-            </ng-container>
+          </div>
 
-            <!-- Progress Column -->
-            <ng-container matColumnDef="progress">
-              <th mat-header-cell style="font-weight:500; color:black; font-size:14px;" *matHeaderCellDef
-                mat-sort-header> Topic Progress </th>
-              <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell style="font-weight: 500; color:black; font-size:14px;" *matHeaderCellDef
-                mat-sort-header> Forname </th>
-              <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="name2">
-              <th mat-header-cell style="font-weight: 500; color:black; font-size:14px;" *matHeaderCellDef
-                mat-sort-header> Surname </th>
-              <td mat-cell *matCellDef="let row"> {{row.name2}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="active">
-              <th mat-header-cell style="font-weight: 500; color:black; font-size:14px;" *matHeaderCellDef
-                mat-sort-header> Active </th>
-              <td mat-cell *matCellDef="let row"> {{row.active}} </td>
-            </ng-container>
-
-            <!-- Color Column -->
-            <ng-container matColumnDef="color">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
-              <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-            <!-- Row shown when there is no matching data. -->
-            <tr class="mat-row" *matNoDataRow>
-              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-            </tr>
-          </table>
-
-          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-        </div>
       </div>
-    </div>
+  </div>
+
 
     <div class="card  text-right" id="CreateNewButton"
-      style="display: none; background-color: #e5e9ec; border-color: transparent;">
+      style="border-color: transparent;">
       <div class="card-body">
         <button class="text-right" mat-raised-button color="primary" [routerLink]="['/ClientOnePageEntry/']">
           Create New Client</button>

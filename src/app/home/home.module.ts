@@ -12,6 +12,11 @@ import {MatDatepickerModule, } from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
+
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -29,7 +34,15 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatSelectModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+
+
+
+
+
   ],
   providers : [ClientSearchService]
 })

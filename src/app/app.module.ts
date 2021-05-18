@@ -7,13 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {MatProgressBarModule} from '@angular/material/progress-bar'
 import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgSelectModule } from '@ng-select/ng-select';
 
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
+ 
+    
+    
 
   ],
   imports: [
@@ -23,6 +29,8 @@ import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatProgressBarModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    NgSelectModule,   
+    NgxMaterialTimepickerModule
     
 
 

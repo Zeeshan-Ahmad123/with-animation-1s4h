@@ -9,22 +9,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  name2: string;
-  active: string;
-}
-
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
-const Actives: string[] = [
-  'Yes', 'No'
-];
 
 @Component({
   selector: 'app-dashboard',
@@ -32,14 +16,13 @@ const Actives: string[] = [
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements AfterViewInit {
-  
-
-  displayedColumns: string[] = ['id', 'name', 'name2', 'progress', 'active' ];
-  dataSource: MatTableDataSource<UserData>;
-
-  @ViewChild(MatPaginator,{static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-
+  clientList: any=[];
+  txtForename: string;
+  txtSurname: string;
+  Forename:string;
+  totalrecords:string;
+  ClientId:number;
+  page: number=1;
 
   constructor(
    private ClientSearchService: ClientSearchService,
@@ -47,54 +30,59 @@ export class DashboardComponent implements AfterViewInit {
 
   )
   {
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    this.dataSource = new MatTableDataSource(users);
+    this.clientList = [];
+    this.txtForename = '';
+    this.txtSurname = '';
   }
 
 
+
+  ngOnInit() {
+    debugger;
+    // this.getList();
+  }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  SearchClient(){
-    $('#clientsearchResult').show();
-    $('#CreateNewButton').show();
 
   }
+  getList() {}
+
+  SearchClient() {
+
+    // this.getList(this.txtForename, this.txtSurname);
+  this.ClientSearchService.getList(this.txtForename, this.txtSurname).subscribe
+      (
+        res => {
+          debugger;
+          console.log(res);
+          this.clientList = res;
+          // this.router.navigateByUrl("/home/");
+        },
+        err => {
+
+        }
+      )
+  }
+  Search(){
+     this.clientList=this.clientList.filter(sol=>{
+        return sol.Forename.toLocaleLowerCase().match(this.txtForename.toLocaleLowerCase())
+      })
+
+  }
+  key:string ='id';
+  reverse : boolean =false;
+  sort(key){
+
+    this.key= key ;
+    this.reverse = !this.reverse;
 
 
-
-
+  }
 
 }
 
 
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
-      const name2 = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
-      const active = Actives[Math.round(Math.random() * (Actives.length - 1))];
 
-  return {
-    id: id.toString(),
-    name: name,
-    name2: name2,
-    active: active,
-    progress: Math.round(Math.random() * 100).toString(),
 
-  };
-}
+

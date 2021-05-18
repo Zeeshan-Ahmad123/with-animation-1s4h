@@ -1,0 +1,3799 @@
+<div class="container-fluid">
+  <mat-accordion style="margin-top: 20px">
+    <mat-expansion-panel hideToggle style="margin: 20px 0px 20px">
+      <mat-expansion-panel-header style="background-color: rgb(88, 88, 236)">
+        <mat-panel-title>
+          <h5 style="margin: 0px 0px 0px 0px; color: white">
+            <span style="font-weight: 600">
+              <strong>User Acess Group</strong>
+            </span>
+          </h5>
+        </mat-panel-title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"
+        />
+        <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
+      </mat-expansion-panel-header>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field appearance="fill">
+              <mat-label>Service Provider</mat-label>
+              <mat-select [formControl]="ConTyp2Control" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let ConTyp2 of ConTyp2" [value]="ConTyp2">
+                  {{ ConTyp2.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >Service Provider required</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field appearance="fill">
+              <mat-label>User Access Group</mat-label>
+              <mat-select [formControl]="ConTyp2Control" required>
+                <mat-option>--</mat-option>
+              </mat-select>
+              <mat-error *ngIf="ConTyp2Control.hasError('required')"
+                >U Must choose a User Access Group</mat-error
+              >
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="form-label"> System Admin:</label>
+          </div>
+          <div class="col-sm-2">
+            <div class="checkbox check-success">
+              <input type="checkbox" id="chkIsAdmin" />
+              <label for="chkIsAdmin"> </label>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="dvMaidstoneOneYouHealthandWellbeingAssessment">
+          <div class="col-sm-3">
+            <label class="form-label">
+              Maidstone One You Health and Wellbeing Assessment:</label
+            >
+          </div>
+          <div class="col-sm-2">
+            <div class="checkbox check-success">
+              <input
+                type="checkbox"
+                id="chkMaidstoneOneYouHealthandWellbeingAssessment"
+                onclick="MaidstoneOneYouHealthandWellbeingAssessmentOnClick();"
+              />
+              <label for="chkMaidstoneOneYouHealthandWellbeingAssessment">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="form-label"> Reports User:</label>
+          </div>
+          <div class="col-sm-2">
+            <div class="checkbox check-success">
+              <input type="checkbox" id="chkReportUser" />
+              <label for="chkReportUser"> </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table
+        id="tblSecurityRights"
+        class="table table-striped griddatetable-without-sort display responsive no-wrap"
+      >
+        <tbody>
+          <tr>
+            <th align="left">Entity</th>
+            <th align="left">View</th>
+            <th align="left">Add</th>
+            <th align="left">Edit</th>
+            <th align="left">Delete</th>
+            <th align="left">Select All</th>
+          </tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">One You Smoke Free</label></td>
+            <td>
+              <!-- add class p-switch -->
+              <div class="pretty p-switch p-fill">
+                <input type="checkbox" />
+                <div class="state">
+                  <label></label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <!-- add class p-switch -->
+              <div class="pretty p-switch p-slim">
+                <input type="checkbox" />
+                <div class="state">
+                  <label></label>
+                </div>
+              </div>
+            </td>
+            <td>
+                <div class="pretty p-icon p-round p-jelly">
+                    <input type="checkbox" />
+                    <div class="state p-primary">
+                        <i class="icon mdi mdi-check"></i>
+                        <label></label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="pretty p-icon p-round p-tada">
+                    <input type="checkbox" />
+                    <div class="state p-primary-o">
+                        <i class="icon mdi mdi-heart"></i>
+                        <label></label>
+                    </div>
+                </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll2"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll2"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none">
+              <input type="hidden" value="3" disabled="disabled" />
+            </td>
+          </tr>
+          <tr style="">
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >MOT / HC</label
+              >
+            </td>
+            <td>
+                <div class="pretty p-icon p-rotate">
+                    <input type="checkbox" />
+                    <div class="state p-success">
+                        <i class="icon mdi mdi-check"></i>
+                        <label></label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="pretty p-icon p-round p-pulse">
+                    <input type="checkbox" />
+                    <div class="state p-success">
+                        <i class="icon mdi mdi-check"></i>
+                        <label></label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon material-icons">done</i>
+                        <label></label>
+                    </div>
+                </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="115" type="checkbox" class="AlwaysDisabled" />
+                <label for="115" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll4"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll4"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none">
+              <input type="hidden" value="35" disabled="disabled" />
+            </td>
+          </tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">One You Lifestyle</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView5"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView5"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="118" type="checkbox" />
+                <label for="118" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="119" type="checkbox" />
+                <label for="119" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="120" type="checkbox" />
+                <label for="120" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll6"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll6"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="13" /></td>
+          </tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">One You Weight loss</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView7"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView7"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="123" type="checkbox" />
+                <label for="123" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="124" type="checkbox" />
+                <label for="124" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="125" type="checkbox" />
+                <label for="125" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll8"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll8"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="14" /></td>
+          </tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td>
+              <label style="font-size: 15px">One You Health Checks / MOT</label>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView9"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView9"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="128" type="checkbox" />
+                <label for="128" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="129" type="checkbox" />
+                <label for="129" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="130" type="checkbox" />
+                <label for="130" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll10"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll10"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none">
+              <input type="hidden" value="30" disabled="disabled" />
+            </td>
+          </tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">One You Maidstone</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView11"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView11"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="133" type="checkbox" />
+                <label for="133" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="134" type="checkbox" />
+                <label for="134" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="135" type="checkbox" />
+                <label for="135" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll12"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll12"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="56" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Home</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView ParentHideShowHome"
+                  id="chkSelectView13"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView13"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="138" type="checkbox" />
+                <label for="138" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="139" type="checkbox" />
+                <label for="139" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="140" type="checkbox" />
+                <label for="140" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll14"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll14"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="7" /></td>
+          </tr>
+          <tr class="HideShowHome" style="background-color: rgb(248, 248, 248)">
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Self Referral Import Follow Ups</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView15"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView15"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="143" type="checkbox" class="AlwaysDisabled" />
+                <label for="143" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="144" type="checkbox" class="AlwaysDisabled" />
+                <label for="144" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="145" type="checkbox" class="AlwaysDisabled" />
+                <label for="145" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll16"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll16"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="66" /></td>
+          </tr>
+          <tr class="HideShowHome" style="background-color: rgb(248, 248, 248)">
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Home Page Follow Ups</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView17"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView17"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="148" type="checkbox" />
+                <label for="148" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="149" type="checkbox" />
+                <label for="149" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="150" type="checkbox" />
+                <label for="150" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll18"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll18"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="34" /></td>
+          </tr>
+          <tr class="HideShowHome" style="background-color: rgb(248, 248, 248)">
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Referrals Listing</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView19"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView19"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="153" type="checkbox" class="AlwaysDisabled" />
+                <label for="153" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="154" type="checkbox" class="AlwaysDisabled" />
+                <label for="154" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="155" type="checkbox" class="AlwaysDisabled" />
+                <label for="155" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll20"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll20"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="72" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Client Information</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView ParentHideShowClientInfo"
+                  id="chkSelectView21"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView21"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="158" type="checkbox" />
+                <label for="158" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="159" type="checkbox" />
+                <label for="159" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="160" type="checkbox" />
+                <label for="160" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll22"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll22"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="1" /></td>
+          </tr>
+          <tr
+            class="HideShowClientInfo"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Client File Upload</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView23"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView23"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="163" type="checkbox" />
+                <label for="163" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="164" type="checkbox" />
+                <label for="164" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="165" type="checkbox" />
+                <label for="165" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll24"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll24"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="26" /></td>
+          </tr>
+          <tr
+            class="HideShowClientInfo"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Record Of Contact</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView25"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView25"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="168" type="checkbox" />
+                <label for="168" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="169" type="checkbox" />
+                <label for="169" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="170" type="checkbox" />
+                <label for="170" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll26"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll26"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="2" /></td>
+          </tr>
+          <tr
+            class="HideShowClientInfo"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >SMS Reply History</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView27"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView27"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="173" type="checkbox" class="AlwaysDisabled" />
+                <label for="173" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="174" type="checkbox" class="AlwaysDisabled" />
+                <label for="174" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="175" type="checkbox" class="AlwaysDisabled" />
+                <label for="175" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll28"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll28"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="27" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Appointment</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView29"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView29"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="178" type="checkbox" disabled="" />
+                <label for="178" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="179" type="checkbox" disabled="" />
+                <label for="179" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="180" type="checkbox" disabled="" />
+                <label for="180" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll30"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll30"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="6" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Look Up Tables</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView ParentHideShowLookUpTables"
+                  id="chkSelectView31"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView31"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="183" type="checkbox" disabled="" />
+                <label for="183" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="184" type="checkbox" disabled="" />
+                <label for="184" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="185" type="checkbox" disabled="" />
+                <label for="185" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll32"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll32"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="11" /></td>
+          </tr>
+          <tr
+            class="HideShowLookUpTablesChilds"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >General Lookups</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView33"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView33"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="188" type="checkbox" disabled="" />
+                <label for="188" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="189" type="checkbox" disabled="" />
+                <label for="189" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="190" type="checkbox" disabled="" />
+                <label for="190" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll34"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll34"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="71" /></td>
+          </tr>
+          <tr
+            class="HideShowLookUpTablesChilds EnableDisableClinicBlockSlot"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Clinics</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView35"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView35"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="193" type="checkbox" disabled="" />
+                <label for="193" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="194" type="checkbox" disabled="" />
+                <label for="194" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="195" type="checkbox" disabled="" />
+                <label for="195" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll36"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll36"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="67" /></td>
+          </tr>
+          <tr
+            class="HideShowLookUpTablesChilds EnableDisableClinicBlockSlotYesNo"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Clinic Block Slots</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView37"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView37"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="198" type="checkbox" disabled="" />
+                <label for="198" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="199"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="199" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="200" type="checkbox" disabled="" />
+                <label for="200" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll38"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll38"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="68" /></td>
+          </tr>
+          <tr
+            class="HideShowLookUpTablesChilds"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Venues</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView39"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView39"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="203" type="checkbox" disabled="" />
+                <label for="203" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="204" type="checkbox" disabled="" />
+                <label for="204" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="205" type="checkbox" disabled="" />
+                <label for="205" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll40"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll40"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="69" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Reports</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView ParentHideShowReports"
+                  id="chkSelectView41"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView41"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="208" type="checkbox" class="AlwaysDisabled" />
+                <label for="208" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="209" type="checkbox" class="AlwaysDisabled" />
+                <label for="209" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="210" type="checkbox" class="AlwaysDisabled" />
+                <label for="210" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll42"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll42"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="25" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >NONPID</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView43"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView43"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="213"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="213" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="214"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="214" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="215"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="215" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll44"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll44"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="29" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px">QRM</label>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView45"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView45"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="218"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="218" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="219"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="219" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="220"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="220" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll46"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll46"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="32" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >KPI Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView47"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView47"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="223"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="223" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="224"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="224" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="225"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="225" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll48"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll48"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="36" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >DOH Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView49"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView49"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="228"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="228" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="229"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="229" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="230"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="230" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll50"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll50"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="38" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Count Of Attendances Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView51"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView51"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="233"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="233" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="234"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="234" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="235"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="235" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll52"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll52"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="39" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Line Listing Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView53"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView53"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="238"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="238" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="239"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="239" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="240"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="240" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll54"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll54"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="40" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Smoking Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView55"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView55"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="243"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="243" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="244"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="244" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="245"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="245" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll56"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll56"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="41" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Flash Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView57"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView57"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="248"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="248" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="249"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="249" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="250"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="250" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll58"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll58"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="42" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Health Check Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView59"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView59"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="253"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="253" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="254"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="254" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="255"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="255" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll60"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll60"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="45" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >User Activity Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView61"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView61"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="258"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="258" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="259"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="259" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="260"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="260" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll62"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll62"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="46" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Sms Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView63"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView63"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="263"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="263" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="264"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="264" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="265"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="265" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll64"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll64"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="47" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Data Quality Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView65"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView65"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="268"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="268" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="269"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="269" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="270"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="270" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll66"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll66"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="48" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Qrm Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView67"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView67"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="273"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="273" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="274"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="274" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="275"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="275" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll68"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll68"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="49" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Dashboard Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView69"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView69"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="278"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="278" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="279"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="279" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="280"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="280" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll70"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll70"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="50" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Claim Summary Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView71"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView71"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="283"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="283" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="284"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="284" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="285"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="285" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll72"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll72"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="51" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >NRT Payments Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView73"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView73"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="288"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="288" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="289"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="289" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="290"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="290" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll74"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll74"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="52" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Referral Payment Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView75"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView75"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="293"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="293" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="294"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="294" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="295"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="295" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll76"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll76"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="54" /></td>
+          </tr>
+          <tr
+            class="HideShowReports"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Weight Management Payment Report</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView77"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView77"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="298"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="298" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="299"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="299" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  id="300"
+                  type="checkbox"
+                  class="AlwaysDisabled"
+                  disabled=""
+                />
+                <label for="300" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll AlwaysDisabled"
+                  id="chkSelectAll78"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll78"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="55" /></td>
+          </tr>
+          <tr class="ShowingSpace" style="height: 25px; border: 0px"></tr>
+          <tr class="SecurityTr" style="background-color: rgb(248, 248, 248)">
+            <td><label style="font-size: 15px">Administration</label></td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView ParentHideShowAdmin"
+                  id="chkSelectView79"
+                  onclick="ViewOnchange(this);"
+                />
+                <label
+                  for="chkSelectView79"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="303" type="checkbox" disabled="" />
+                <label for="303" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="304" type="checkbox" disabled="" />
+                <label for="304" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="305" type="checkbox" disabled="" />
+                <label for="305" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll80"
+                  onclick="SelectCheckUncheck(this);"
+                />
+                <label
+                  for="chkSelectAll80"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="4" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Additional Information</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView81"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView81"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="308" type="checkbox" disabled="" />
+                <label for="308" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="309" type="checkbox" disabled="" />
+                <label for="309" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="310" type="checkbox" disabled="" />
+                <label for="310" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll82"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll82"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="5" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Bulk SMS</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView83"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView83"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="313" type="checkbox" disabled="" />
+                <label for="313" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="314" type="checkbox" disabled="" />
+                <label for="314" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="315" type="checkbox" disabled="" />
+                <label for="315" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll84"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll84"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="22" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Email Template</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView85"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView85"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="318" type="checkbox" disabled="" />
+                <label for="318" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="319" type="checkbox" disabled="" />
+                <label for="319" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="320" type="checkbox" disabled="" />
+                <label for="320" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll86"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll86"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="20" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Follow Ups</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView87"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView87"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="323" type="checkbox" disabled="" />
+                <label for="323" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="324" type="checkbox" disabled="" />
+                <label for="324" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="325" type="checkbox" disabled="" />
+                <label for="325" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll88"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll88"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="24" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Letter Template Uploader</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView89"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView89"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="328" type="checkbox" disabled="" />
+                <label for="328" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="329" type="checkbox" disabled="" />
+                <label for="329" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="330" type="checkbox" disabled="" />
+                <label for="330" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll90"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll90"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="23" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Mail Merge</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView91"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView91"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="333" type="checkbox" disabled="" />
+                <label for="333" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="334" type="checkbox" disabled="" />
+                <label for="334" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="335" type="checkbox" disabled="" />
+                <label for="335" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll92"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll92"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="21" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Password Policy</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView93"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView93"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="338" type="checkbox" disabled="" />
+                <label for="338" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="339" type="checkbox" disabled="" />
+                <label for="339" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="340" type="checkbox" disabled="" />
+                <label for="340" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll94"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll94"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="17" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Search Options</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView95"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView95"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="343" type="checkbox" disabled="" />
+                <label for="343" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="344" type="checkbox" disabled="" />
+                <label for="344" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="345" type="checkbox" disabled="" />
+                <label for="345" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll96"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll96"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="31" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Service Provider</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView97"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView97"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="348" type="checkbox" disabled="" />
+                <label for="348" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="349" type="checkbox" disabled="" />
+                <label for="349" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="350" type="checkbox" disabled="" />
+                <label for="350" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll98"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll98"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="8" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >SMS Template</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView99"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView99"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="353" type="checkbox" disabled="" />
+                <label for="353" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="354" type="checkbox" disabled="" />
+                <label for="354" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="355" type="checkbox" disabled="" />
+                <label for="355" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll100"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll100"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="19" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px">User</label>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView101"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView101"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="358" type="checkbox" disabled="" />
+                <label for="358" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="359" type="checkbox" disabled="" />
+                <label for="359" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="360" type="checkbox" disabled="" />
+                <label for="360" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll102"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll102"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="10" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >User Access Group</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView103"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView103"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="363" type="checkbox" disabled="" />
+                <label for="363" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="364" type="checkbox" disabled="" />
+                <label for="364" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="365" type="checkbox" disabled="" />
+                <label for="365" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll104"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll104"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="9" /></td>
+          </tr>
+          <tr
+            class="HideShowAdmin"
+            style="background-color: rgb(248, 248, 248)"
+          >
+            <td>
+              <label style="font-weight: normal; margin-left: 10px"
+                >Welcome Message</label
+              >
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectView"
+                  id="chkSelectView105"
+                  onclick="ViewOnchange(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectView105"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="368" type="checkbox" disabled="" />
+                <label for="368" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="369" type="checkbox" disabled="" />
+                <label for="369" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input id="370" type="checkbox" disabled="" />
+                <label for="370" style="font-weight: normal; margin-left: 10px">
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="checkbox check-success">
+                <input
+                  type="checkbox"
+                  class="chkSelectAll"
+                  id="chkSelectAll106"
+                  onclick="SelectCheckUncheck(this);"
+                  disabled=""
+                />
+                <label
+                  for="chkSelectAll106"
+                  style="font-weight: normal; margin-left: 10px"
+                >
+                </label>
+              </div>
+            </td>
+            <td style="display: none"><input type="hidden" value="18" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <div class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    Admin Outcome:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkAdminOutcome">
+                    <label for="chkAdminOutcome">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTAdminOut">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    Dispensing:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkIsDispensing">
+                    <label for="chkIsDispensing">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTDispensing">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    Unknown:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkUnknown">
+                    <label for="chkUnknown">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTUnknown">
+            </div>
+        </div>
+        
+        <div id="ContentPlaceHolder1_divPGD2" class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    PGD:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkIsPGDreport">
+                    <label for="chkIsPGDreport">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTPGDReport">
+            </div>
+        </div>
+        <div class="row hidden" id="dvIPAQ">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    IPAQ:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkIsIPAQ">
+                    <label for="chkIsIPAQ">
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    Active:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkActive">
+                    <label for="chkActive">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTActive">
+            </div>
+        </div>
+        <div id="ContentPlaceHolder1_divOnePageEntry" class="row">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    One Page Entry:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkOnePageEntry">
+                    <label for="chkOnePageEntry">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2 hidden" id="TTOnePageEntry">
+            </div>
+
+            <div class="" id="dvOnePage_ReferralCallBack">
+                <div class="col-sm-12">
+                    <label class="form-label">
+                        One Page Referral Call Back:</label>
+                </div>
+                <div class="col-sm-2 ">
+                    <div class="checkbox check-success ">
+                        <input type="checkbox" id="chkOnePage_ReferralCallBack">
+                        <label for="chkOnePage_ReferralCallBack">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="row" id="trOYWLPharmacy">
+            <div class="col-sm-3">
+                <label class="form-label">
+                    OYWL Pharmacy:</label>
+            </div>
+            <div class="col-sm-2 ">
+                <div class="checkbox check-success ">
+                    <input type="checkbox" id="chkOYWLPharmacy">
+                    <label for="chkOYWLPharmacy">
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden" id="TTOYWLPharmacy">
+            </div>
+        </div>
+        
+    </div>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
